@@ -27,7 +27,7 @@ local function saveBannedFile(tbl)
         table.insert(arr, k)
     end
     
-    local encoded = json.encode(arr, { indent = true }) -- שמירה בפורמט קריא
+    local encoded = json.encode(arr, { indent = true })
     local saveStatus = SaveResourceFile(resourceName, Config.BannedListFile, encoded, -1)
     
     if not saveStatus then
@@ -44,7 +44,7 @@ AddEventHandler('playerConnecting', function(playerName, setKickReason, deferral
     
     Wait(100)
     
-    deferrals.update(string.format("שלום %s, בודק הרשאות כניסה...", playerName))
+    deferrals.update(string.format("Hello %s, checking entry permissions...", playerName))
 
     local identifiers = GetPlayerIdentifiers(src)
     local isBanned = false
@@ -91,7 +91,7 @@ RegisterCommand('ryzo_removediscordban', function(source, args, raw)
     end
 end, true)
 
-RegisterCommand('ryzo_listbans', function(source, args, raw)
+RegisterCommand('listbans', function(source, args, raw)
     if source ~= 0 then return print("Command for console only.") end
     
     print("^1--- Banned Discord IDs ---^7")
